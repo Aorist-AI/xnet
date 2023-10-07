@@ -1,0 +1,427 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'css/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <style>
+    div.packages {
+      margin: 4px, 4px;
+      padding: 4px;
+      width: 500px;
+      height: 400px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-align: justify;
+    }
+
+    .notification-header {
+      background-color: black;
+      color: purple;
+      opacity: 0.9;
+    }
+
+    .alert {
+      width: 50%;
+    }
+
+    a {
+      color: blanchedalmond;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'admindashboard' %}">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">TruthWiFi</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Admin Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading text-center pt-4 " style="color: purple;">
+        The Promised Lan
+        <hr class="sidebar-divider my-2">
+      </div>
+      <div class="row pt-4">
+        <div class="col-md-12">
+          <button class="btn btn-secondary">
+            <b><small>Showing Users</small></b>
+          </button>
+        </div>
+        <div class="col-md-12 pt-2">
+          <button class="btn btn-secondary">
+            <b><small>Hotspot Users</small></b>
+          </button>
+        </div>
+        <div class="col-md-12 pt-2">
+          <button class="btn btn-secondary"><a href="{% url 'online_users' %}">
+              <b><small>Online Users</small></b>
+            </a>
+          </button>
+        </div>
+        <div class="col-md-12 pt-4">
+          <button class="btn btn-danger">
+            <b><small>Logout</small></b>
+          </button>
+        </div>
+      </div>
+
+
+      <!--Other components and utilities-->
+      <!-- Nav Item - Utilities Collapse Menu -->
+
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4 pt-4">
+            <h1 class="h3 mb-0 text-gray-800">Earnings</h1>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <div class="col-xl-12 col-md-12 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Annual Earnings</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <details class="col-xl-12 col-md-12 mb-4">
+              <ul>
+                <li>we</li>
+                <li>are</li>
+                <li>all</li>
+                <li>here</li>
+              </ul>
+              <summary><b><small><strong>View Annual earnings Details</strong></small></b></summary>
+            </details>
+
+            <div class="col-xl-12 col-md-12 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Monthly Earnings</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <details class="col-xl-12 col-md-6 mb-4">
+              <ul>
+                <li>we</li>
+                <li>are</li>
+                <li>all</li>
+                <li>here</li>
+              </ul>
+              <summary><b><small><strong>View Monthly earnings Details</strong></small></b></summary>
+            </details>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-12 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Weekly Earnings</div>
+                      <div class="col">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="col-xl-12 col-md-12 mb-4">
+            <ul>
+              <li>we</li>
+              <li>are</li>
+              <li>all</li>
+              <li>here</li>
+            </ul>
+            <summary><b><small><strong>View Weekly Earnings Details</strong></small></b></summary>
+          </details>
+          <!-- Pending Requests Card Example -->
+          <div class="col-xl-12 col-md-12 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Daily Earning</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <details class="col-xl-12 col-md-12 mb-4">
+          <ul>
+            <li>we</li>
+            <li>are</li>
+            <li>all</li>
+            <li>here</li>
+          </ul>
+          <summary><b><small><strong>View Daily Earnings Details</strong></small></b></summary>
+        </details>
+        <!-- Content Row -->
+
+        <div class="row pt-4">
+
+          <!-- Area Chart -->
+          <div class="col-xl-6 col-lg-7">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Most Active Users</h6>
+                <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="myAreaChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Most bought Package -->
+          <div class="col-xl-6 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Card Header  -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Most Bought Package</h6>
+                <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+
+                  </a>
+                </div>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class=" pt-4 pb-2 row" style=" vertical-align: middle">
+                  <!-- <div class="col-md-12"> -->
+                  <div class=" packages col-md-12" style="display: inline;">
+                    {% for items in bundle_freqs %}
+                    <div>
+                      <p><strong> Package Count :</strong>
+                        {{ items.count}}</p>
+
+                      {% for data in items.packages %}
+                      <p><strong>Package price : </strong> {{ data.bundle_price }} <small>KSH</small> </p>
+                      <p><strong>Package : </strong> {{ data.bundle}} </p>
+
+                      {% endfor %}
+                    </div>
+                    <hr>
+                    {% endfor %}
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class=" row">
+
+          <!-- Content Column -->
+          <div class="col-lg-6 mb-4">
+
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+        <div class="col-md-12 container-fluid card" style="background-color: ;">
+          <hr>
+          <div class=" notification-header ">
+            <hr>
+            <!--Section heading-->
+            <h3 class="h1-responsive font-weight-bold text-center my-4">Talk To Your Clients</h3>
+            <!--Section description-->
+            <p class="text-center w-responsive mx-auto mb-5">Send Direct message to all your clients.</p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="" method="POST">
+                  {% csrf_token %}
+                  <!-- Grid column-->
+                  <div class="col-md-12">
+                    <div class="alert alert-success" style="height: 45px;">
+                      <p class="pt-0"><small>This message will directly go to all your users</small> </p>
+                    </div>
+                    <div class="col-md-12">
+                      <label> <b><strong>
+                            <h4 class="h1-responsive font-weight-bold text-center ">Message</h4>
+                          </strong></b></label>
+                    </div>
+                    <div class="md-form">
+                      {{ form.message }}
+
+                    </div>
+                    <div class="submit pt-3">
+                      <button class="btn btn-warning"> <strong>
+                          <b>
+                            <<>>
+                          </b>
+                        </strong> </button>
+                    </div>
+                  </div>
+              </div>
+              <!--Grid row-->
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

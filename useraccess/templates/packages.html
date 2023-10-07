@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="The Promised LAN - Offers affordable and reliable internet. Powered by Eryx Labs">
+    <meta name="author" content="TechCrunch">
+    <link rel="shortcut icon" href="truth-favicon.png" type="image/x-icon">
+    <title>TRUTH WIFI</title>
+
+    <link media="all" type="text/css" rel="stylesheet" href="{% static 'css/frontend.dev.css' %}">
+    <style>
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            animation: gradient 15s ease infinite;
+        }
+
+        .guest-btn {
+            margin-top: 10px
+        }
+
+        .navbar-default {
+            border-bottom: none;
+            background-color: #111;
+            -webkit-box-shadow: 0 5px 5px #888;
+            -moz-box-shadow: 0 5px 5px #888;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .16) opacity 0.9;
+        }
+
+        .btn,
+        .label {
+            border-radius: 25px 25px
+        }
+
+        .navbar-default .navbar-brand,
+        .navbar-default .navbar-nav>li>a {
+            color: #fff
+        }
+
+        .btn-default,
+        .label-default {
+            background-color: #8a2be2;
+            color: #fff
+        }
+
+        .btn-default:hover,
+        .label-default[href]:hover {
+            background-color: white;
+            color: #ddd
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #8a2be2;
+            border-color: #8a2be2
+        }
+
+        .btn-primary.focus,
+        .btn-primary:focus {
+            color: #fff;
+            background-color: #8a2be2;
+            border-color: #8a2be2
+        }
+
+        .btn-primary.active,
+        .btn-primary:active,
+        .btn-primary:hover,
+        .open>.btn-primary.dropdown-toggle {
+            color: #fff;
+            background-color: #7c2ad2;
+            border-color: #7c2ad2
+        }
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-nav>li>a:hover {
+            color: #ddd
+        }
+
+        .content {
+            min-height: 82vh;
+            padding: 15px
+        }
+
+        .main-footer {
+            border-top: 1px solid rgba(0, 0, 0, .16);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .welcome-header {
+            padding-top: 70px;
+            background: #8a2be2 url(#) no-repeat fixed center;
+            background-size: cover
+        }
+
+        .welcome-guest-panel {
+            background: rgba(99, 107, 111, .47) !important
+        }
+
+        .messages {
+            margin-top: 70px
+        }
+
+        .row-margin-top {
+            margin-top: 10px;
+            padding: 4px
+        }
+
+        #packages {
+            padding: 20px;
+        }
+
+        #packages .panel-heading {
+            background-color: #111;
+            max-height: 140px;
+            height: 140px;
+            cursor: pointer;
+            text-align: center;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* overflow: hidden */
+        }
+
+        small {
+            color: antiquewhite;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0pt;
+        }
+
+        .button {
+            outline: none;
+            box-shadow: none;
+            border: solid 2px;
+        }
+
+        .panel {
+            background-color: #111;
+            opacity: 0.9;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+    function select_bundle(clicked) {
+        let values = document.getElementById(clicked).value;
+        let bundle_name = document.getElementById(clicked).name;
+        data_array = [];
+        data_array = values.split(',');
+        data_array.push(bundle_name);
+        alert(data_array)
+        var url = "https://d6dfe0419429.ngrok.io/api/v1/online/lipa"
+
+        $.ajax(
+            {
+                type: "GET",
+                url: url,
+                data: {
+                    access_period: data_array[0],
+                    price: data_array[1],
+                    speed: data_array[2],
+                    bundle_id: data_array[3],
+                    bundle: data_array[4],
+
+                },
+                success: function (data) {
+                    $('#like' + catid).remove();
+                    $('#message').text(data);
+                }
+            })
+
+    }
+
+</script>
+<!-- Scripts -->
+
+<body>
+    <div class="wrapper">
+        <!-- NAV SECTION -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'packages' %}">Internet Plans</a></li>
+                        <li><a href="{% url 'profile' %}">My Account</a></li>
+                        <li><a href="logout.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--END NAV SECTION -->
+        <div class="content-wrapper">
+            <div class="container messages">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- MAIN CONTENT -->
+                <div class="row">
+                    <div class="col-xs-12 text-center" style="color: whitesmoke;">
+                        <h1>TRUTH WIFI</h1>
+                        <p>
+                            Get fast and affordable internet packages from here
+                        </p>
+                    </div>
+                </div>
+                <hr style="border: 4px solid;  color:whitesmoke;">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="row" id="packages">
+                            {% for items in package_list %}
+                            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
+                                <button class="btn btn-primary text-center panel" action=""
+                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}},{{items.bundle_id}}
+                                    name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
+                                    style="border:none;">
+                                    <small>
+                                        <ul>
+                                            <li><strong>{{items.bundle_length}}</strong></li>
+                                            <li><strong>{{items.bundle}}</strong></li>
+                                            <li><strong>{{items.bundle_price}} Ksh</strong></li>
+
+                                        </ul>
+                                    </small>
+
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN CONTENT -->
+                <!-- FOOTER -->
+                <!--FOOTER SECTION -->
+                <div class="main-footer text-center">
+                    <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
+                </div>
+                <!-- END FOOTER SECTION -->
+                <!-- FOOTER -->
+            </div>
+
+</body>
+
+</html>

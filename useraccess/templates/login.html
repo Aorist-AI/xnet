@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="TruthWifi Offers affordable and reliable internet. Powered by TechCrunch">
+    <meta name="author" content="TechCrunch">
+    <link rel="shortcut icon" href="truth-favicon.png" type="image/x-icon">
+    <title>TRUTH WIFI</title>
+    <link media="all" type="text/css" rel="stylesheet" href="frontend.dev.css">
+    <style>
+       .guest-btn{margin-top:10px}.navbar-default{border-bottom:none;background-color:#111;-webkit-box-shadow:0 5px 5px #888;-moz-box-shadow:0 5px 5px #888;box-shadow:0 2px 5px rgba(0,0,0,.16)}.btn,.label{border-radius:25px 25px}.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a{color:#fff}.btn-default,.label-default{background-color:#8a2be2;color:#fff}.btn-default:hover,.label-default[href]:hover{background-color:#8a2be2;color:#ddd}.btn-primary{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.focus,.btn-primary:focus{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.active,.btn-primary:active,.btn-primary:hover,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#7c2ad2;border-color:#7c2ad2}.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>li>a:hover{color:#ddd}.content{min-height:82vh;padding:15px}.main-footer{border-top:1px solid rgba(0,0,0,.16);padding-top:10px;padding-bottom:10px}.welcome-header{padding-top:70px;background:#8a2be2 url(#) no-repeat fixed center;background-size:cover}.welcome-guest-panel{background:rgba(99,107,111,.47)!important}.messages{margin-top:70px}.row-margin-top{margin-top:10px;padding:4px}
+    </style>
+    <style>
+        .btn{width:220px;height:50px;border:none;outline:0;color:#fff;background:#111;cursor:pointer;position:relative;z-index:0;border-radius:10px}.btn:before{content:'';background:linear-gradient(45deg,red,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,red);position:absolute;top:-2px;left:-2px;background-size:400%;z-index:-1;filter:blur(5px);width:calc(100% + 4px);height:calc(100% + 4px);animation:glowing 20s linear infinite;opacity:0;transition:opacity .3s ease-in-out;border-radius:10px}.btn:active{color:#000}.btn:active:after{background:0 0}.btn:before{opacity:1}.btn:after{z-index:-1;content:'';position:absolute;width:100%;height:100%;background:#111;left:0;top:0;border-radius:10px}@keyframes glowing{0%{background-position:0 0}50%{background-position:400% 0}100%{background-position:0 0}}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- NAV SECTION -->
+    <div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="index.html">Home</a></li>
+								<li><a href="register.html">Register</a></li>
+				<li><a id="loginUrlToggle" href="login.html">Login</a></li>
+                			</ul>
+		</div>
+	</div>
+    </div>    <!--END NAV SECTION -->
+    <div class="content-wrapper">
+        <div class="container messages">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                                    </div>
+            </div>
+        </div>
+        <div class="content">
+            <!-- MAIN CONTENT -->
+        	<div class="row login-box">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="text-center">Login here</h3>
+				</div>
+				<div class="panel-body">
+					<form action="login.html" method="post">
+						<input type="hidden" name="_token" value="">
+												<div class="row">
+							<div class="col-xs-12 form-group">
+								<label for="username">Username</label>
+								<input type="text" id="username" name="user_name" value="" class="form-control input-lg" placeholder="john_mwangi">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 form-group">
+								<label for="pin">Pin </label> <a href="http://truthwifi.com/client/password/request" class="pull-right" style="color: #111111;">forgot pin or username?</a>
+								<input type="password" id="pin" name="password" value="" class="form-control input-lg" placeholder="1234">
+							</div>
+						</div>
+						<div class="row text-center">
+							<div class="col-xs-12">
+								<button class="btn btn-default btn-lg" type="submit">Login</button>
+							</div>
+						</div>
+					</form>
+					<div class="row text-center">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h5 class="">Or register here</h5>
+							<a class="btn btn-default btn-lg" href="register.html">Register</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+        <!-- MAIN CONTENT -->
+        </div>
+    </div>
+    <!-- FOOTER -->
+<!--FOOTER SECTION -->
+<div class="main-footer text-center">
+	<strong>Copyright &copy; 2020 <a href="index.html">TRUTH WIFI</a>.</strong>
+</div>
+<!-- END FOOTER SECTION -->
+<!-- FOOTER -->
+</div>
+
+</body>
+</html>

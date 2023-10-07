@@ -1,0 +1,507 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="truthwifi - Offers affordable and reliable internet. Powered by Eryx Labs">
+	<meta name="author" content="TechCrunch">
+	<link rel="shortcut icon" href="truth-favicon.png" type="image/x-icon">
+	<title>TRUTH WIFI</title>
+	<link media="all" type="text/css" rel="stylesheet" href="{% static 'css/frontend.dev.css' %}">
+
+	<!-- styles -->
+	<style>
+		.guest-btn {
+			margin-top: 10px;
+		}
+
+		.navbar-default {
+			border-bottom: none;
+			background-color: #111111;
+			-webkit-box-shadow: 0 5px 5px #888888;
+			-moz-box-shadow: 0 5px 5px #888888;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+		}
+
+		.label,
+		.btn {
+			border-radius: 25px 25px;
+		}
+
+		.navbar-default .navbar-brand,
+		.navbar-default .navbar-nav>li>a {
+			color: #fff;
+		}
+
+		.label-default,
+		.btn-default {
+			background-color: #8A2BE2;
+			color: #fff;
+		}
+
+		.label-default[href]:hover,
+		.btn-default:hover {
+			background-color: #8A2BE2;
+			color: #ddd;
+		}
+
+		.btn-primary {
+			color: #fff;
+			background-color: #8A2BE2;
+			border-color: #8A2BE2;
+		}
+
+		.btn-primary.focus,
+		.btn-primary:focus {
+			color: #fff;
+			background-color: #8A2BE2;
+			border-color: #8A2BE2;
+		}
+
+		.btn-primary.active,
+		.btn-primary:active,
+		.btn-primary:hover,
+		.open>.btn-primary.dropdown-toggle {
+			color: #fff;
+			background-color: #7c2ad2;
+			border-color: #7c2ad2;
+		}
+
+		.navbar-default .navbar-brand:hover,
+		.navbar-default .navbar-nav>li>a:hover {
+			color: #ddd;
+		}
+
+		.content {
+			min-height: 82vh;
+			padding: 15px;
+		}
+
+		.main-footer {
+			border-top: 1px solid rgba(0, 0, 0, 0.16);
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.welcome-header {
+			padding-top: 70px;
+			background: #8A2BE2 url("#") no-repeat fixed center;
+			background-size: cover;
+
+		}
+
+		.welcome-guest-panel {
+			background: rgba(99, 107, 111, 0.47) !important;
+		}
+
+		.messages {
+			/*top: 65px;*/
+			/*position: absolute;*/
+			margin-top: 70px;
+		}
+
+		.row-margin-top {
+			margin-top: 10px;
+			padding: 4px;
+		}
+
+		.panel-title {
+			background-color: #111111;
+		}
+	</style>
+	<style>
+		.fa-exchange {
+			-webkit-transform: rotate(90deg);
+			-moz-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			-o-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+
+		.right-bottom {
+			position: absolute;
+			right: 4px;
+			bottom: 0;
+		}
+
+		.left-bottom {
+			position: absolute;
+			left: 4px;
+			bottom: 0;
+		}
+
+		.right-top {
+			position: absolute;
+			right: 4px;
+			top: 0;
+		}
+
+		.left-top {
+			position: absolute;
+			left: 4px;
+			top: 0;
+		}
+
+		.list-group-item {
+			text-align: right;
+		}
+
+		.right {
+			overflow-x: scroll;
+		}
+
+		[data-toggle='collapse'] {
+			cursor: pointer;
+		}
+	</style>
+	<style>
+		.btn {
+			width: 220px;
+			height: 50px;
+			border: none;
+			outline: none;
+			color: #fff;
+			background: #111;
+			cursor: pointer;
+			position: relative;
+			z-index: 0;
+			border-radius: 10px;
+		}
+
+		.btn:before {
+			content: '';
+			background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background-size: 400%;
+			z-index: -1;
+			filter: blur(5px);
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			animation: glowing 20s linear infinite;
+			opacity: 0;
+			transition: opacity .3s ease-in-out;
+			border-radius: 10px;
+		}
+
+		.btn:active {
+			color: #000
+		}
+
+		.btn:active:after {
+			background: transparent;
+		}
+
+		.btn:before {
+			opacity: 1;
+		}
+
+		.btn:after {
+			z-index: -1;
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: #111;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+		}
+
+		@keyframes glowing {
+			0% {
+				background-position: 0 0;
+			}
+
+			50% {
+				background-position: 400% 0;
+			}
+
+			100% {
+				background-position: 0 0;
+			}
+		}
+	</style>
+
+</head>
+<!-- Scripts -->
+
+<body>
+	<div class="wrapper">
+		<!-- NAV SECTION -->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="{% url 'packages' %}">Internet Plans</a></li>
+						<li><a href="{% url 'profile' %}">My Account</a></li>
+						<li><a href="http://truthwifi.com/client/logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--END NAV SECTION -->
+		<div class="content-wrapper">
+			<div class="container messages">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<!-- MAIN CONTENT -->
+				<div class="row">
+					<h2 class="visible-xs visible-sm text-center mb-40">My Account</h2>
+					<div class="col-sm-12 text-center">
+						<div class="row">
+							<div class="col-sm-5">
+								<div class="row">
+									<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+										<div class="panel panel-warning" style="position: relative;">
+											<div class="panel-heading">
+												<i class="fa fa-money fa-2x left-top"></i><i
+													class="fa fa-money fa-2x right-top"></i>
+												<h3>balance</h3>
+												<p style="margin-bottom: 25px;">Kshs 0.00</p>
+												<i class="fa fa-money fa-2x left-bottom"></i><i
+													class="fa fa-money fa-2x right-bottom"></i>
+												<div class="clear-fix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="row">
+									<div class="col-xs-12">
+										<i class="fa fa-feed fa-3x pull-left"></i>
+										<span><strong>Bundle Purchased: {{context.access_period}}.</strong></span>
+										<br>
+										<span><strong>Bundle balance: {{context.Balance}}.</strong></span>
+										<br>
+										<span><strong>Expected Expiry: {{context.Expiry}}.</strong></span>
+
+									</div>
+								</div>
+								<br class="hidden-sm">
+								<div class="row">
+									<div class="col-xs-12">
+										<a href="http://truthwifi.com/client/credit" class="btn btn-primary">
+											Connect to Internet
+										</a>
+										<a href="{% url 'packages' %}" class="btn btn-primary">
+											Buy Internet Bundle
+										</a>
+									</div>
+								</div>
+								<br class="hidden-sm">
+								<span><i class="fa fa-info-circle"></i><small> Refresh page to update data
+										balance.</small></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="border: 4px solid">
+				<div class="row">
+					<div id="session-accounting">
+						<div id="client-message" style="display: none;">
+							<div class="col-xs-12 text-center" id="dashboard-data">
+								<span style="color: #2622ca;">
+									You are online, <strong id="data-used">Data Used: 0 Mbs</strong>&nbsp;.<strong
+										id="time-used">. Session Time: 0 Mins</strong>,enjoy browsing!
+								</span>
+							</div>
+							<div id="dashboard-no-data" class="col-xs-12 text-center" id="expiration">
+								<span style="color: #2622ca;">
+									<strong>You browsing is limited.</strong> Purchase a bundle plan to enjoy browsing,
+									<a href="http://truthwifi.com/client/packages">click here.</a>
+								</span>
+							</div>
+						</div>
+						<div id="alt-message" style="display: block;">
+							<div class="col-xs-12 text-center">
+								<span id="text-result">
+									<i class="fa fa-refresh fa-spin" style="color: #2622ca;"></i>
+									{{ context.Connection_message }}.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="border: 4px solid;">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="panel panel-primary">
+							<div class="panel-heading" data-toggle="collapse" data-target="#profile">
+								<h2 class="panel-title text-center">
+									<span class="h3">
+										My profile
+									</span>
+								</h2>
+							</div>
+							<div class="panel-collapse collapse in" id="profile">
+								<div class="panel-body">
+									<div class="list-group">
+										<a href="#" class="list-group-item">
+											<span class="text-primary pull-left hidden-xs">Name</span>
+											<span class="visible-xs text-primary"><i class="fa fa-user"></i></span>
+											<strong class="right">Paul_Saul</strong>
+										</a>
+										<a href="#" class="list-group-item">
+											<span class="text-primary pull-left hidden-xs">Phone</span>
+											<span class="visible-xs text-primary"><i class="fa fa-phone"></i></span>
+											<strong class="right">+254797584194</strong>
+										</a>
+										<a href="#" class="list-group-item">
+											<span class="text-primary pull-left hidden-xs">Email</span>
+											<span class="visible-xs text-primary"><i class="fa fa-envelope"></i></span>
+											<strong class="right">Paul_Saul</strong>
+										</a>
+										<a href="#" class="list-group-item">
+											<span class="text-primary pull-left hidden-xs">Joined</span>
+											<span class="visible-xs text-primary"><i class="fa fa-clock-o"></i></span>
+											<strong class="right">1 year ago</strong>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-primary">
+
+							<div class="panel-collapse collapse" id="mpesa-claim">
+								<div class="panel-body">
+
+									<div class="form-group">
+										<label for="trans_id" class="col-xs-3">Mpesa Code</label>
+										<div class="col-xs-9">
+											<input type="text" class="form-control" id="trans_id" name="trans_id">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-offset-3 col-xs-9">
+											<button class="btn btn-primary" type="submit">Claim</button>
+										</div>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="panel panel-primary">
+									<div class="panel-heading" data-toggle="collapse" data-target="#form">
+										<h2 class="panel-title text-center">
+											<span class="h3">Complete or Update your profile here</span>
+										</h2>
+									</div>
+									<div class="panel-collapse collapse" id="form">
+										<div class="panel-body">
+											<form action="http://truthwifi.com/client/update?user=2629" method="post"
+												class="form-horizontal">
+												<input type="hidden" name="_token"
+													value="2wIgoG2NuFpFCWLJ1IuIXxDGdQqouPTVoZXK56Rg">
+												<div class="form-group">
+													<label for="full_name" class="col-xs-3">Name</label>
+													<div class="col-xs-9">
+														<input type="text" class="form-control" id="full_name"
+															name="full_name" value="Paul_Saul">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="email" class="col-xs-3">Email</label>
+													<div class="col-xs-9">
+														<input type="email" class="form-control" id="email" name="email"
+															value="Paul_Saul">
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-xs-offset-3 col-xs-9">
+														<input class="btn btn-primary" type="submit">
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="panel panel-primary">
+									<div class="panel-heading" data-toggle="collapse" data-target="#pin">
+										<h2 class="panel-title text-center">
+											<span class="h3">Change your pin here</span>
+										</h2>
+									</div>
+									<div class="panel-collapse collapse" id="pin">
+										<div class="panel-body">
+											<form action="http://truthwifi.com/client/password/change?user=2629"
+												method="post" class="form-horizontal">
+												<input type="hidden" name="_token"
+													value="2wIgoG2NuFpFCWLJ1IuIXxDGdQqouPTVoZXK56Rg">
+												<div class="form-group">
+													<label for="old_password" class="col-xs-4">Old PIN</label>
+													<div class="col-xs-8">
+														<input type="password" class="form-control" id="old_password"
+															name="old_password" value="" placeholder="1234">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="password" class="col-xs-4">New Pin</label>
+													<div class="col-xs-8">
+														<input type="password" id="password" name="password" value=""
+															class="form-control" placeholder="9876">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="password_confirmation" class="col-xs-4">Confirm New
+														Pin</label>
+													<div class="col-xs-8">
+														<input type="password" id="password_confirmation"
+															name="password_confirmation" class="form-control"
+															placeholder="9876">
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-xs-offset-4 col-xs-8">
+														<input class="btn btn-primary" type="submit">
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- MAIN CONTENT -->
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<!--FOOTER SECTION -->
+		<div class="main-footer text-center">
+			<strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
+		</div>
+		<!-- END FOOTER SECTION -->
+		<!-- FOOTER -->
+	</div>
+	<!-- JavaScripts -->
+
+</body>
+
+</html>

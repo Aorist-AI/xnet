@@ -1,0 +1,12 @@
+Package,Package_Price,Package_length,speed 
+50MB,5,Daily,moderate
+UNLIMITED,10,hourly,moderate
+150MB,10,Daily,moderate
+400MB,20,Daily,moderate
+2GB,30,Daily,moderate
+UNLIMITED,50,Daily,moderate
+2GB,50,Weekly,moderate
+5GB,150,Weekly,moderate
+UNLIMITED,80,Daily,Fast
+UNLIMITED,300,Weekly,moderate
+UNLIMITED,1000,Monthly,moderate
